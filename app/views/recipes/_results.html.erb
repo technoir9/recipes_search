@@ -1,0 +1,26 @@
+<table class="table">
+  <thead>
+  <tr>
+    <th scope="col">Title</th>
+    <th scope="col">Cook time</th>
+    <th scope="col">Prep time</th>
+    <th scope="col">Ingredients</th>
+    <th scope="col">Ratings</th>
+    <th scope="col">Category</th>
+    <th scope="col">Author</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% search_results.each do |result| %>
+    <tr>
+      <th scope="row"><%= result.title %></th>
+      <td><%= result.cook_time %></td>
+      <td><%= result.prep_time %></td>
+      <td><%= result.ingredients %></td>
+      <td><%= result.ratings %></td>
+      <td><%= result.category %></td>
+      <td><%= result.author %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
