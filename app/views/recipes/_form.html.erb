@@ -1,5 +1,5 @@
 <%= form_with(url: { action: 'search' }, method: :get) do |f| %>
   <%= f.label :ingredients, 'Please enter the ingredients separated by commas.' %>
-  <%= f.text_field :ingredients %>
+  <%= f.text_field :ingredients, required: true %>
   <%= f.submit 'Search' %>
 <% end %>
