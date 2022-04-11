@@ -39,6 +39,36 @@ In order to import the recipes into the database, run the `import_recipes` rake 
 $ RECIPES_URL=http://example.com/recipes.json.gz rake import_recipes
 ```
 
+## Database structure
+
+Database consists of one table, `recipes`, which has the following structure:
+```
+                                          Table "public.recipes"
+Column    |              Type              | Collation | Nullable |               Default               
+-------------+--------------------------------+-----------+----------+-------------------------------------
+id          | bigint                         |           | not null | nextval('recipes_id_seq'::regclass)
+title       | character varying              |           |          |
+cook_time   | integer                        |           |          |
+prep_time   | integer                        |           |          |
+ingredients | jsonb                          |           |          |
+ratings     | numeric                        |           |          |
+cuisine     | character varying              |           |          |
+category    | character varying              |           |          |
+author      | character varying              |           |          |
+image       | character varying              |           |          |
+created_at  | timestamp(6) without time zone |           | not null |
+updated_at  | timestamp(6) without time zone |           | not null |
+Indexes:
+"recipes_pkey" PRIMARY KEY, btree (id)
+```
+
+## User stories
+
+1. As a user, I want to be able to find the most relevant recipes that I can prepare with
+   the specified ingredients.
+2. As a user, I want to export the found recipes to CSV file so that I can save and share
+   them more easily.
+
 ## Deployment
 
 [Getting Started on Heroku with Rails 6.x](https://devcenter.heroku.com/articles/getting-started-with-rails6)
