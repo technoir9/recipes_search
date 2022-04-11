@@ -8,6 +8,7 @@
     <th scope="col">Ratings</th>
     <th scope="col">Category</th>
     <th scope="col">Author</th>
+    <th scope="col">Image</th>
   </tr>
   </thead>
   <tbody>
@@ -20,6 +21,9 @@
       <td><%= result.ratings %></td>
       <td><%= result.category %></td>
       <td><%= result.author %></td>
+      <td>
+        <a href="<%= result.image %>" target="_blank">Click to see the image</a>
+      </td>
     </tr>
   <% end %>
   </tbody>
