@@ -1,6 +1,7 @@
 <div class="container my-3">
   <%= render 'form' %>
   <% if defined? search_results %>
+    <%= render 'export', search_results: search_results %>
     <%= render 'results', search_results: search_results %>
   <% end %>
 </div>
