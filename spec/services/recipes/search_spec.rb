@@ -17,19 +17,6 @@ RSpec.describe Recipes::Search do
       ])
     end
 
-    context 'with limit specified' do
-      subject { described_class.new(ingredients, limit: limit).call }
-
-      let(:limit) { 2 }
-
-      it 'returns most relevant recipes' do
-        expect(subject).to eq([
-          recipe2,
-          recipe3
-        ])
-      end
-    end
-
     context 'with more ingredients' do
       let(:ingredients) { ['egg', 'sugar'] }
 

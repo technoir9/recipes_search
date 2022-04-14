@@ -292,7 +292,7 @@ Layout/EmptyLinesAroundAccessModifier:
   Enabled: false
 
 Layout/MultilineMethodCallIndentation:
-  EnforcedStyle: indented
+  EnforcedStyle: aligned
 
 Layout/IndentationWidth:
   Enabled: true
