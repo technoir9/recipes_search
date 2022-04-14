@@ -1,6 +1,6 @@
 <%= form_with(url: { action: 'search' }, method: :get) do |f| %>
   <%= f.label :ingredients, 'Please enter the ingredients separated by commas.' %>
-  <%= f.text_field :ingredients, required: true %>
+  <%= f.text_field :ingredients, required: true, value: params[:ingredients] %>
   <%= f.submit 'Search' %>
   <div class="per-page">
     <%= f.label :per_page, 'Results per page' %>
