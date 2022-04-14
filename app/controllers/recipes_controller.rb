@@ -2,13 +2,14 @@
 
 class RecipesController < ApplicationController
   INGREDIENTS_SEPARATOR = ','
+  DEFAULT_PER_PAGE = 10
 
   def index; end
 
   def search
     result = Recipes::Search.new(ingredients).call
 
-    render 'index', locals: { search_results: result }
+    render 'index', locals: { search_results: result.page(current_page).per(result_per_page).without_count }
   end
 
   def export
@@ -23,6 +24,14 @@ class RecipesController < ApplicationController
 
   def ingredients
     params.require(:ingredients).split(INGREDIENTS_SEPARATOR)
+  end
+
+  def current_page
+    params[:page] || 1
+  end
+
+  def result_per_page
+    params[:per_page] || DEFAULT_PER_PAGE
   end
 
   def ordered_recipes

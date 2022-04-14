@@ -292,7 +292,7 @@ Layout/EmptyLinesAroundAccessModifier:
   Enabled: false
 
 Layout/MultilineMethodCallIndentation:
-  EnforcedStyle: indented
+  EnforcedStyle: aligned
 
 Layout/IndentationWidth:
   Enabled: true
@@ -455,6 +455,9 @@ RSpec/MultipleMemoizedHelpers:
 
 RSpec/MessageSpies:
   Enabled: false
+
+RSpec/MultipleExpectations:
+  Max: 5
 
 # Rails Cops
 

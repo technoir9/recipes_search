@@ -1,3 +1,10 @@
+<div class="my-3 d-flex">
+  <h3>Search results for the following ingredients: <%= params.require(:ingredients) %></h3>
+  <%= render 'export', search_results: search_results %>
+</div>
+<% if (params[:per_page] || 0).to_i > 10 %>
+  <%= paginate search_results, total_pages: 100 %>
+<% end %>
 <table class="table">
   <thead>
   <tr>
@@ -17,7 +24,13 @@
       <th scope="row"><%= result.title %></th>
       <td><%= result.cook_time %></td>
       <td><%= result.prep_time %></td>
-      <td><%= result.ingredients %></td>
+      <td>
+        <ul>
+          <% result.ingredients.each do |ingredient| %>
+            <li><%= ingredient %></li>
+          <% end %>
+        </ul>
+      </td>
       <td><%= result.ratings %></td>
       <td><%= result.category %></td>
       <td><%= result.author %></td>
@@ -28,3 +41,4 @@
   <% end %>
   </tbody>
 </table>
+<%= paginate search_results, total_pages: 100 %>
