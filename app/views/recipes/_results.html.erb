@@ -24,7 +24,13 @@
       <th scope="row"><%= result.title %></th>
       <td><%= result.cook_time %></td>
       <td><%= result.prep_time %></td>
-      <td><%= result.ingredients %></td>
+      <td>
+        <ul>
+          <% result.ingredients.each do |ingredient| %>
+            <li><%= ingredient %></li>
+          <% end %>
+        </ul>
+      </td>
       <td><%= result.ratings %></td>
       <td><%= result.category %></td>
       <td><%= result.author %></td>
