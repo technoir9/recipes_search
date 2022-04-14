@@ -29,5 +29,17 @@ RSpec.describe Recipes::Search do
         ])
       end
     end
+
+    context 'with more ingredients' do
+      let(:ingredients) { ['egg', 'sugar'] }
+
+      it 'returns most relevant recipes' do
+        expect(subject).to eq([
+          recipe3,
+          recipe1,
+          recipe2
+        ])
+      end
+    end
   end
 end

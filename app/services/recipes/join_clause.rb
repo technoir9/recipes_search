@@ -28,7 +28,7 @@ module Recipes
     end
 
     def rank
-      "(ts_rank((#{TS_VECTOR}), (#{ts_query}), 0)) / jsonb_array_length(recipes.ingredients) AS rank"
+      "ts_rank((#{TS_VECTOR}), (#{ts_query}), 1) AS rank"
     end
 
     def where_clause
@@ -38,7 +38,7 @@ module Recipes
     def ts_query
       @_ts_query ||= ingredients.map do |ingredient|
         "plainto_tsquery('english', #{sanitize(ingredient)})"
-      end.join(' && ')
+      end.join(' || ')
     end
 
     def sanitize(str)
