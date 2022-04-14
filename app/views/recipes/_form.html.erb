@@ -2,4 +2,8 @@
   <%= f.label :ingredients, 'Please enter the ingredients separated by commas.' %>
   <%= f.text_field :ingredients, required: true %>
   <%= f.submit 'Search' %>
+  <div class="per-page">
+    <%= f.label :per_page, 'Results per page' %>
+    <%= f.select :per_page, [5, 10, 25, 50], selected: params[:per_page] || 10 %>
+  </div>
 <% end %>
